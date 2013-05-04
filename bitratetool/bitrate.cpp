@@ -245,11 +245,15 @@ int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
 
 int main(int argc, char *argv[])
 {
-	if (argc < 3) exit(-1);
+	if (argc < 4)
+	{
+		fprintf(stderr, "usage: %s <adapterid> <demuxid> <pid> [..<pidN>]\n", argv[0]);
+		exit(-1);
+	}
 	std::vector<int> pids;
-	for (int i = 1; i < argc - 1; i++)
+	for (int i = 2; i < argc - 1; i++)
 	{
 		pids.push_back(atoi(argv[i + 1]));
 	}
-	measureBitrate(0, atoi(argv[1]), false, pids);
+	measureBitrate(atoi(argv[1]), atoi(argv[2]), false, pids);
 }
