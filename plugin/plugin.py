@@ -34,6 +34,7 @@ class BitrateViewer(Screen):
 	def __init__(self, session):
 		self.skin = BitrateViewer.skin
 		Screen.__init__(self, session)
+		self.setTitle(_("Bitrate viewer"))
 		self.bitrate = Bitrate(session, self.refreshEvent, self.bitrateStopped)
 
 		self["cancel"] = Button(_("Exit"))
@@ -76,4 +77,4 @@ def main(session, **kwargs):
 	session.open(BitrateViewer)
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name = "Bitrate viewer", description = "Lets you view the bitrate", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main)
+	return PluginDescriptor(name = _("Bitrate viewer"), description = _("Lets you view the bitrate"), where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main)
