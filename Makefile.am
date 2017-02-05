@@ -1,1 +1,1 @@
-SUBDIRS = bitratetool plugin
+SUBDIRS = bitratetool plugin po
