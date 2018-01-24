@@ -187,8 +187,8 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 				<widget name="config" position="10,45" size="620,255" />
 				<ePixmap pixmap="skin_default/buttons/green.png" position="440,0" zPosition="0" size="140,40" alphatest="on" />
 				<ePixmap pixmap="skin_default/buttons/red.png" position="60,0" zPosition="0" size="140,40" alphatest="on" />
-				<widget name="ok" position="440,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
-				<widget name="cancel" position="60,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
+				<widget name="key_green" position="440,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
+				<widget name="key_red" position="60,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
 			</screen>"""
 	else:
 		skin = """
@@ -196,16 +196,16 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 				<widget name="config" position="10,70" size="980,350" font="Regular;33" itemHeight="35" />
 				<ePixmap pixmap="skin_default/buttons/green.png" position="650,0" zPosition="0" size="250,40" alphatest="on" />
 				<ePixmap pixmap="skin_default/buttons/red.png" position="150,0" zPosition="0" size="250,40" alphatest="on" />
-				<widget name="ok" position="630,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="green" />
-				<widget name="cancel" position="130,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="red" />
+				<widget name="key_green" position="630,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="green" />
+				<widget name="key_red" position="130,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="red" />
 			</screen>"""
 
 	def __init__(self, session):
 		self.skin = BitrateViewerSetup.skin
 		self.setup_title = _("Bitrate viewer setup")
 		Screen.__init__(self, session)
-		self["ok"] = Label(_("Save/OK"))
-		self["cancel"] = Label(_("Cancel"))
+		self["key_green"] = Label(_("Save/OK"))
+		self["key_red"] = Label(_("Cancel"))
 		self["actions"] = ActionMap(["SetupActions", "ColorActions"], 
 		{
 			"ok": self.keyOk,
