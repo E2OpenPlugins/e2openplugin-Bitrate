@@ -6,7 +6,7 @@
 #
 
 DOMAIN=Bitrate
-installdir = /usr/lib/enigma2/python/Plugins/Extensions/$(DOMAIN)
+installdir = $(LIBDIR)/enigma2/python/Plugins/Extensions/$(DOMAIN)
 #GETTEXT=./pygettext.py
 GETTEXT=xgettext
 
