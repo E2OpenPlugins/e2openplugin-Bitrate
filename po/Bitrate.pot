@@ -8,123 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 21:45+0200\n"
+"POT-Creation-Date: 2018-06-14 17:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: plugin.py:159 plugin.py:160
 msgid " kbit/s"
 msgstr ""
 
-#: plugin.py:107
 msgid "Audio:"
 msgstr ""
 
-#: plugin.py:264
 msgid "Background window"
 msgstr ""
 
-#: plugin.py:441
 msgid "Bitrate setup"
 msgstr ""
 
-#: plugin.py:111 plugin.py:444
 msgid "Bitrate viewer"
 msgstr ""
 
-#: plugin.py:205
 msgid "Bitrate viewer setup"
 msgstr ""
 
-#: plugin.py:208
 msgid "Cancel"
 msgstr ""
 
-#: plugin.py:322
 msgid "GUI needs a restart to apply changes!"
 msgstr ""
 
-#: plugin.py:260
 msgid "Mode"
 msgstr ""
 
-#: plugin.py:446
 msgid "Restart bitrate viewer"
 msgstr ""
 
-#: plugin.py:207
 msgid "Save/OK"
 msgstr ""
 
-#: plugin.py:263
 msgid "Show 'restart bitrate' in extensions menu"
 msgstr ""
 
-#: plugin.py:440
 msgid "Show bitrate for live service"
 msgstr ""
 
-#: plugin.py:262
 msgid "Start for type services"
 msgstr ""
 
-#: plugin.py:261
 msgid "Style skin"
 msgstr ""
 
-#: plugin.py:318
 msgid "Using bitrate in the skins with this plugin is not compatible!"
 msgstr ""
 
-#: plugin.py:106
 msgid "Video:"
 msgstr ""
 
-#: plugin.py:265
 msgid "X screen position"
 msgstr ""
 
-#: plugin.py:266
 msgid "Y screen position"
 msgstr ""
 
-#: plugin.py:267
 msgid "Z screen position"
 msgstr ""
 
-#: plugin.py:21
 msgid "all"
 msgstr ""
 
-#: plugin.py:20
 msgid "as infobar"
 msgstr ""
 
-#: plugin.py:16
 msgid "black"
 msgstr ""
 
-#: plugin.py:22
 msgid "compact"
 msgstr ""
 
-#: plugin.py:20
 msgid "extension menu"
 msgstr ""
 
-#: plugin.py:22
 msgid "full info"
 msgstr ""
 
-#: plugin.py:21
 msgid "only DVB"
 msgstr ""
 
-#: plugin.py:16
 msgid "transparent"
 msgstr ""

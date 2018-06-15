@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-14 17:39+0200\n"
+"PO-Revision-Date: 2018-06-14 17:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid " kbit/s"
+msgstr " kbit/s"
+
+msgid "Audio:"
+msgstr "Audio:"
+
+msgid "Background window"
+msgstr "Fenêtre d'arrière plan"
+
+msgid "Bitrate setup"
+msgstr "Visualiseur du débit binaire configuration"
+
+msgid "Bitrate viewer"
+msgstr "Visualiseur de débit binaire"
+
+msgid "Bitrate viewer setup"
+msgstr "Configuration du visualiseur de débit binaire"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "GUI needs a restart to apply changes!"
+msgstr "L’IGU doit être redémarré pour appliquer les changements!"
+
+msgid "Mode"
+msgstr "Mode"
+
+msgid "Restart bitrate viewer"
+msgstr "Redémarrer le visualiseur de débit binaire"
+
+msgid "Save/OK"
+msgstr "Enregistrer/OK"
+
+msgid "Show 'restart bitrate' in extensions menu"
+msgstr "Afficher ‘redémarrer le visualiseur de débit binaire’ dans le menu des extensions"
+
+msgid "Show bitrate for live service"
+msgstr "Affiche le débit binaire des services en direct"
+
+msgid "Start for type services"
+msgstr "Démarrer pour les types de services"
+
+msgid "Style skin"
+msgstr "Style du thème/skin"
+
+msgid "Using bitrate in the skins with this plugin is not compatible!"
+msgstr "Utiliser le débit binaire dans les thèmes/skins avec ce plugin n’est pas compatible!"
+
+msgid "Video:"
+msgstr "Vidéo:"
+
+msgid "X screen position"
+msgstr "Position de l’écran X"
+
+msgid "Y screen position"
+msgstr "Position de l’écran Y"
+
+msgid "Z screen position"
+msgstr "Position de l’écran Z"
+
+msgid "all"
+msgstr "tous"
+
+msgid "as infobar"
+msgstr "comme barre d’info"
+
+msgid "black"
+msgstr "noir"
+
+msgid "compact"
+msgstr "compacte"
+
+msgid "extension menu"
+msgstr "menu des extensions"
+
+msgid "full info"
+msgstr "info complète"
+
+msgid "only DVB"
+msgstr "seulement DVB"
+
+msgid "transparent"
+msgstr "transparent"
