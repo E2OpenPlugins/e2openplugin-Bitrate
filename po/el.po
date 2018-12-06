@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-14 17:40+0200\n"
+"PO-Revision-Date: 2018-12-07 01:06+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: el\n"
+
+msgid " kbit/s"
+msgstr " kbit/s"
+
+msgid "Audio:"
+msgstr "Ήχος:"
+
+msgid "Background window"
+msgstr "Παράθυρο φόντου"
+
+msgid "Bitrate setup"
+msgstr "Bitrate ρυθμίσεις"
+
+msgid "Bitrate viewer"
+msgstr "Επισκόπηση bitrate"
+
+msgid "Bitrate viewer setup"
+msgstr "Ρυθμίσεις επισκόπησης bitrate"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "GUI needs a restart to apply changes!"
+msgstr "Πρέπει να γίνει επανεκκίνηση της επιφάνειας χρήστη για να εφαρμοστούν οι αλλαγές!"
+
+msgid "Mode"
+msgstr "Λειτουργία"
+
+msgid "Restart bitrate viewer"
+msgstr "Επανεκκίνηση επισκόπησης bitrate"
+
+msgid "Save/OK"
+msgstr "Αποθήκευση/OK"
+
+msgid "Show 'restart bitrate' in extensions menu"
+msgstr "Εμφάνιση 'επανεκκίνηση bitrate' στο μενού επεκτάσεων"
+
+msgid "Show bitrate for live service"
+msgstr "Εμφάνιση ρυθμού bit για την τρέχουσα υπηρεσία"
+
+msgid "Start for type services"
+msgstr "Εκκίνηση για τύπο υπηρεσιών"
+
+msgid "Style skin"
+msgstr "Στυλ θέματος"
+
+msgid "Using bitrate in the skins with this plugin is not compatible!"
+msgstr "Η χρήση του ρυθμού bit στα θέματα με αυτό το πρόσθετο δεν είναι συμβατή!"
+
+msgid "Video:"
+msgstr "Βίντεο:"
+
+msgid "X screen position"
+msgstr "Χ θέση οθόνης"
+
+msgid "Y screen position"
+msgstr "Y θέση οθόνης"
+
+msgid "Z screen position"
+msgstr "Z θέση οθόνης"
+
+msgid "all"
+msgstr "όλα"
+
+msgid "as infobar"
+msgstr "ως μπάρα πληροφοριών"
+
+msgid "black"
+msgstr "μαύρο"
+
+msgid "compact"
+msgstr "συμπτυγμένο"
+
+msgid "extension menu"
+msgstr "μενού επεκτάσεων"
+
+msgid "full info"
+msgstr "όλες οι πληροφορίες"
+
+msgid "only DVB"
+msgstr "μόνο DVB"
+
+msgid "transparent"
+msgstr "διάφανο"
