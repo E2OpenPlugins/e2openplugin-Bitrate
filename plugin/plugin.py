@@ -185,8 +185,8 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		skin = """
 			<screen position="center,center" size="640,310" title="Bitrate viewer setup" >
 				<widget name="config" position="10,45" size="620,255" />
-				<ePixmap pixmap="buttons/green.png" position="440,0" zPosition="0" size="140,40" alphatest="on" />
-				<ePixmap pixmap="buttons/red.png" position="60,0" zPosition="0" size="140,40" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/green.png" position="440,0" zPosition="0" size="140,40" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/red.png" position="60,0" zPosition="0" size="140,40" alphatest="on" />
 				<widget name="key_green" position="440,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
 				<widget name="key_red" position="60,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
 			</screen>"""
@@ -194,8 +194,8 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		skin = """
 			<screen position="center,center" size="1000,420" title="Bitrate viewer setup" >
 				<widget name="config" position="10,70" size="980,350" font="Regular;33" itemHeight="35" />
-				<ePixmap pixmap="buttons/green.png" position="650,0" zPosition="0" size="250,40" alphatest="on" />
-				<ePixmap pixmap="buttons/red.png" position="150,0" zPosition="0" size="250,40" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/green.png" position="650,0" zPosition="0" size="250,40" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/red.png" position="150,0" zPosition="0" size="250,40" alphatest="on" />
 				<widget name="key_green" position="630,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="green" />
 				<widget name="key_red" position="130,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="red" />
 			</screen>"""
