@@ -1,4 +1,5 @@
 from enigma import eConsoleAppContainer, iServiceInformation
+import six
 
 class Bitrate:
 	def __init__(self, session, refresh_func = None, finished_func = None):
@@ -71,7 +72,7 @@ class Bitrate:
 
 	def dataAvail(self, str):
 		#prepend any remaining data from the previous call
-		str = self.remainingdata + str
+		str = self.remainingdata + six.ensure_str(str)
 		#split in lines
 		newlines = str.split('\n')
 		#'str' should end with '\n', so when splitting, the last line should be empty. If this is not the case, we received an incomplete line
