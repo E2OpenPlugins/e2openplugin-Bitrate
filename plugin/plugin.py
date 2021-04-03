@@ -184,20 +184,20 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 	if not FULLHD:
 		skin = """
 			<screen position="center,center" size="640,310" title="Bitrate viewer setup" >
-				<widget name="config" position="10,45" size="620,255" />
-				<ePixmap pixmap="skin_default/buttons/green.png" position="440,0" zPosition="0" size="140,40" alphatest="on" />
-				<ePixmap pixmap="skin_default/buttons/red.png" position="60,0" zPosition="0" size="140,40" alphatest="on" />
+				<widget name="config" position="center,45" size="e-20,240" font="Regular;22" itemHeight="24" />
+				<ePixmap pixmap="skin_default/buttons/green.png" position="440,0" zPosition="0" size="140,40" scale="1" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/red.png" position="60,0" zPosition="0" size="140,40" scale="1" alphatest="on" />
 				<widget name="key_green" position="440,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="green" />
 				<widget name="key_red" position="60,0" size="140,40" valign="center" halign="center" zPosition="1" font="Regular;20" transparent="1" backgroundColor="red" />
 			</screen>"""
 	else:
 		skin = """
-			<screen position="center,center" size="1000,420" title="Bitrate viewer setup" >
-				<widget name="config" position="10,70" size="980,350" font="Regular;33" itemHeight="35" />
-				<ePixmap pixmap="skin_default/buttons/green.png" position="650,0" zPosition="0" size="250,40" alphatest="on" />
-				<ePixmap pixmap="skin_default/buttons/red.png" position="150,0" zPosition="0" size="250,40" alphatest="on" />
-				<widget name="key_green" position="630,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="green" />
-				<widget name="key_red" position="130,0" size="250,40" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="red" />
+			<screen position="center,center" size="960,465" title="Bitrate viewer setup" >
+				<widget name="config" position="center,67" size="e-30,360" font="Regular;33" itemHeight="36" />
+				<ePixmap pixmap="skin_default/buttons/green.png" position="660,0" zPosition="0" size="210,60" scale="1" alphatest="on" />
+				<ePixmap pixmap="skin_default/buttons/red.png" position="90,0" zPosition="0" size="210,60" scale="1" alphatest="on" />
+				<widget name="key_green" position="660,0" size="210,60" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="green" />
+				<widget name="key_red" position="90,0" size="210,60" valign="center" halign="center" zPosition="1" font="Regular;30" transparent="1" backgroundColor="red" />
 			</screen>"""
 
 	def __init__(self, session):
