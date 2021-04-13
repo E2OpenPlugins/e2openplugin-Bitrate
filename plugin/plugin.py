@@ -13,14 +13,14 @@ from Tools.Directories import pathExists, fileExists
 from bitrate import Bitrate
 
 config.plugins.bitrate = ConfigSubsection()
-config.plugins.bitrate.background = ConfigSelection([("#00000000", _("black")),("#54111112", _("transparent") + " - " + _("black"))], default="#00000000")
-config.plugins.bitrate.x = ConfigInteger(default=300, limits=(0,9999))
-config.plugins.bitrate.y = ConfigInteger(default=300, limits=(0,9999))
+config.plugins.bitrate.background = ConfigSelection([("#00000000", _("black")), ("#54111112", _("transparent") + " - " + _("black"))], default="#00000000")
+config.plugins.bitrate.x = ConfigInteger(default=300, limits=(0, 9999))
+config.plugins.bitrate.y = ConfigInteger(default=300, limits=(0, 9999))
 config.plugins.bitrate.force_restart = ConfigYesNo(default=True)
-config.plugins.bitrate.show_in_menu = ConfigSelection([("infobar", _("as infobar")),("extmenu", _("extension menu"))], default="extmenu")
-config.plugins.bitrate.infobar_type_services = ConfigSelection([("all", _("all")),("dvb", _("only DVB"))], default="all")
-config.plugins.bitrate.style_skin = ConfigSelection([("compact", _("compact")),("full", _("full info"))], default="full")
-config.plugins.bitrate.z = ConfigSelection([(str(x), str(x)) for x in range(-20,21)], "1")
+config.plugins.bitrate.show_in_menu = ConfigSelection([("infobar", _("as infobar")), ("extmenu", _("extension menu"))], default="extmenu")
+config.plugins.bitrate.infobar_type_services = ConfigSelection([("all", _("all")), ("dvb", _("only DVB"))], default="all")
+config.plugins.bitrate.style_skin = ConfigSelection([("compact", _("compact")), ("full", _("full info"))], default="full")
+config.plugins.bitrate.z = ConfigSelection([(str(x), str(x)) for x in range(-20, 21)], "1")
 
 infobarModeBitrateInstance = None
 bitrateviewer = None
@@ -28,6 +28,8 @@ bitrateviewer = None
 FULLHD = False
 if getDesktop(0).size().width() >= 1920:
 	FULLHD = True
+
+
 class BitrateViewerExtra(Screen):
 	skin_compact_fullhd = """
 		<screen position="200,40" size="300,90" zPosition="%s" flags="wfNoBorder" backgroundColor="%s" title="Bitrate viewer">
@@ -132,7 +134,7 @@ class BitrateViewerExtra(Screen):
 
 	def __layoutFinished(self):
 		if self.instance:
-			self.instance.move(ePoint(config.plugins.bitrate.x.value,config.plugins.bitrate.y.value))
+			self.instance.move(ePoint(config.plugins.bitrate.x.value, config.plugins.bitrate.y.value))
 		if not self.infobar_mode:
 			self.bitrateUpdateStart()
 
@@ -180,6 +182,7 @@ class BitrateViewerExtra(Screen):
 			if self.shown:
 				self.hide()
 
+
 class BitrateViewerSetup(Screen, ConfigListScreen):
 	def __init__(self, session):
 		self.setup_title = _("Bitrate viewer setup")
@@ -187,7 +190,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		self.skinName = "Setup"
 		self["key_green"] = Label(_("Save/OK"))
 		self["key_red"] = Label(_("Cancel"))
-		self["actions"] = ActionMap(["SetupActions", "ColorActions"], 
+		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"ok": self.keyOk,
 			"save": self.keyGreen,
@@ -228,8 +231,8 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 
 	def initConfig(self):
 		def getPrevValues(section):
-			res = { }
-			for (key,val) in section.content.items.items():
+			res = {}
+			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -266,7 +269,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):
@@ -317,13 +320,13 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		ConfigListScreen.keyRight(self)
 		self.createSetup()
 
+
 class infobarModeBitrate:
 	def __init__(self, session):
 		self.session = session
 		self.dvb_service = ""
 		self.onClose = []
-		self.__event_tracker = ServiceEventTracker(screen=self,eventmap=
-			{
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evStart: self.__evStart,
 				iPlayableService.evUpdatedInfo: self.__evUpdatedInfo,
 				iPlayableService.evEnd: self.__evEnd
@@ -397,6 +400,7 @@ class infobarModeBitrate:
 		self.__evEnd()
 		self.__evStart()
 
+
 def main(session, **kwargs):
 	global bitrateviewer
 	if bitrateviewer:
@@ -405,24 +409,28 @@ def main(session, **kwargs):
 		bitrateviewer = None
 	session.open(BitrateViewerExtra)
 
+
 def settings(session, **kwargs):
 	session.open(BitrateViewerSetup)
+
 
 def restart(session, **kwargs):
 	if session.nav.getCurrentlyPlayingServiceReference() and bitrateviewer and infobarModeBitrateInstance:
 		infobarModeBitrateInstance.resetService()
+
 
 def sessionstart(reason, session, **kwargs):
 	global infobarModeBitrateInstance
 	if reason == 0 and session and infobarModeBitrateInstance is None:
 		infobarModeBitrateInstance = infobarModeBitrate(session)
 
+
 def Plugins(**kwargs):
 	desc = _("Show bitrate for live service")
-	list = [PluginDescriptor(name = _("Bitrate setup"), description = desc, where = PluginDescriptor.WHERE_PLUGINMENU, icon = "bitrateviewer.png", fnc = settings)]
-	list.append(PluginDescriptor(where = PluginDescriptor.WHERE_SESSIONSTART, fnc = sessionstart))
+	list = [PluginDescriptor(name=_("Bitrate setup"), description=desc, where=PluginDescriptor.WHERE_PLUGINMENU, icon="bitrateviewer.png", fnc=settings)]
+	list.append(PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, fnc=sessionstart))
 	if config.plugins.bitrate.show_in_menu.value == "extmenu":
-		list.append(PluginDescriptor(name = _("Bitrate viewer"), description = desc, where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main))
+		list.append(PluginDescriptor(name=_("Bitrate viewer"), description=desc, where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main))
 	elif config.plugins.bitrate.force_restart.value:
-		list.append(PluginDescriptor(name = _("Restart bitrate viewer"), description = desc, where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = restart))
+		list.append(PluginDescriptor(name=_("Restart bitrate viewer"), description=desc, where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=restart))
 	return list
