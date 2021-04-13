@@ -13,14 +13,14 @@ from Tools.Directories import pathExists, fileExists
 from bitrate import Bitrate
 
 config.plugins.bitrate = ConfigSubsection()
-config.plugins.bitrate.background = ConfigSelection([("#00000000", _("black")),("#54111112", _("transparent") + " - " + _("black"))], default="#00000000")
-config.plugins.bitrate.x = ConfigInteger(default=300, limits=(0,9999))
-config.plugins.bitrate.y = ConfigInteger(default=300, limits=(0,9999))
+config.plugins.bitrate.background = ConfigSelection([("#00000000", _("black")), ("#54111112", _("transparent") + " - " + _("black"))], default="#00000000")
+config.plugins.bitrate.x = ConfigInteger(default=300, limits=(0, 9999))
+config.plugins.bitrate.y = ConfigInteger(default=300, limits=(0, 9999))
 config.plugins.bitrate.force_restart = ConfigYesNo(default=True)
-config.plugins.bitrate.show_in_menu = ConfigSelection([("infobar", _("as infobar")),("extmenu", _("extension menu"))], default="extmenu")
-config.plugins.bitrate.infobar_type_services = ConfigSelection([("all", _("all")),("dvb", _("only DVB"))], default="all")
-config.plugins.bitrate.style_skin = ConfigSelection([("compact", _("compact")),("full", _("full info"))], default="full")
-config.plugins.bitrate.z = ConfigSelection([(str(x), str(x)) for x in range(-20,21)], "1")
+config.plugins.bitrate.show_in_menu = ConfigSelection([("infobar", _("as infobar")), ("extmenu", _("extension menu"))], default="extmenu")
+config.plugins.bitrate.infobar_type_services = ConfigSelection([("all", _("all")), ("dvb", _("only DVB"))], default="all")
+config.plugins.bitrate.style_skin = ConfigSelection([("compact", _("compact")), ("full", _("full info"))], default="full")
+config.plugins.bitrate.z = ConfigSelection([(str(x), str(x)) for x in range(-20, 21)], "1")
 
 infobarModeBitrateInstance = None
 bitrateviewer = None
@@ -132,7 +132,7 @@ class BitrateViewerExtra(Screen):
 
 	def __layoutFinished(self):
 		if self.instance:
-			self.instance.move(ePoint(config.plugins.bitrate.x.value,config.plugins.bitrate.y.value))
+			self.instance.move(ePoint(config.plugins.bitrate.x.value, config.plugins.bitrate.y.value))
 		if not self.infobar_mode:
 			self.bitrateUpdateStart()
 
@@ -229,7 +229,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 	def initConfig(self):
 		def getPrevValues(section):
 			res = {}
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -266,7 +266,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):
@@ -322,7 +322,7 @@ class infobarModeBitrate:
 		self.session = session
 		self.dvb_service = ""
 		self.onClose = []
-		self.__event_tracker = ServiceEventTracker(screen=self,eventmap={
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evStart: self.__evStart,
 				iPlayableService.evUpdatedInfo: self.__evUpdatedInfo,
 				iPlayableService.evEnd: self.__evEnd
