@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plugins 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-05-18 14:30+0300\n"
+"Last-Translator: tomppaa <http://www.huoltovalikko.com/>\n"
+"Language-Team: none\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.3\n"
+"POT-Creation-Date: \n"
+
+msgid " kbit/s"
+msgstr " kbit/s"
+
+msgid "Audio:"
+msgstr "Ääni:"
+
+msgid "audio"
+msgstr "ääni"
+
+msgid "video"
+msgstr "kuva"
+
+msgid "Background window"
+msgstr "Tausta ikkuna"
+
+msgid "Bitrate setup"
+msgstr "Bittinopeus Asetukset"
+
+msgid "Bitrate viewer"
+msgstr "Bittinopeus"
+
+msgid "Bitrate viewer setup"
+msgstr "Bittinopeus asetukset"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "GUI needs a restart to apply changes!"
+msgstr "Käyttöjärjestelmä tarvitsee uudelleen käynnistyksen muutosten tekemiseen jälkeen!"
+
+msgid "Mode"
+msgstr "Tila"
+
+msgid "Restart bitrate viewer"
+msgstr "Käynnistä bittinopeuden katseluohjelma uudelleen"
+
+msgid "Save/OK"
+msgstr "Tallenna/OK"
+
+msgid "Show 'restart bitrate' in extensions menu"
+msgstr "Näytä 'käynnistä bittinopeus' laajennusvalikossa"
+
+msgid "Show bitrate for live service"
+msgstr "Näytä bittinopeus kanavilla"
+
+msgid "Start for type services"
+msgstr "Alkaen tyyppiset palvelut"
+
+msgid "Style skin"
+msgstr "Ikkunan tyyli"
+
+msgid "Using bitrate in the skins with this plugin is not compatible!"
+msgstr "Bittinopeuden teeman käyttäminen tämän laajennuksen kanssa ei ole yhteensopiva!"
+
+msgid "Video:"
+msgstr "Kuva:"
+
+msgid "X screen position"
+msgstr "Näytön sijainti X"
+
+msgid "Y screen position"
+msgstr "Näytön sijainti Y"
+
+msgid "Z screen position"
+msgstr "Näytön sijainti Z"
+
+msgid "all"
+msgstr "kaikki"
+
+msgid "as infobar"
+msgstr "kuten tietopalkki"
+
+msgid "black"
+msgstr "musta"
+
+msgid "compact"
+msgstr "kompakti"
+
+msgid "extension menu"
+msgstr "laajennusvalikko"
+
+msgid "full info"
+msgstr "täydet tiedot"
+
+msgid "only DVB"
+msgstr "ainoastaan DVB"
+
+msgid "transparent"
+msgstr "läpinäkyvä"
+
+msgid "min"
+msgstr "pienin"
+
+msgid "max"
+msgstr "suurin"
+
+msgid "average"
+msgstr "keskiverto"
+
+msgid "current"
+msgstr "nykyinen"
