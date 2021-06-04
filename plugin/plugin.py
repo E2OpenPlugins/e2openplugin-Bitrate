@@ -342,8 +342,7 @@ class infobarModeBitrate:
 		self.session = session
 		self.dvb_service = ""
 		self.onClose = []
-		self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
-			{
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evStart: self.__evStart,
 				iPlayableService.evUpdatedInfo: self.__evUpdatedInfo,
 				iPlayableService.evEnd: self.__evEnd
@@ -439,10 +438,10 @@ def sessionstart(reason, session, **kwargs):
 
 def Plugins(**kwargs):
 	desc = _("Show bitrate for live service")
-	list = [PluginDescriptor(name = _("Bitrate setup"), description = desc, where = PluginDescriptor.WHERE_PLUGINMENU, icon = "bitrateviewer.png", fnc = settings)]
-	list.append(PluginDescriptor(where = PluginDescriptor.WHERE_SESSIONSTART, fnc = sessionstart))
+	list = [PluginDescriptor(name=_("Bitrate setup"), description=desc, where=PluginDescriptor.WHERE_PLUGINMENU, icon="bitrateviewer.png", fnc=settings)]
+	list.append(PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, fnc=sessionstart))
 	if config.plugins.bitrate.show_in_menu.value == "extmenu":
-		list.append(PluginDescriptor(name = _("Bitrate viewer"), description = desc, where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main))
+		list.append(PluginDescriptor(name=_("Bitrate viewer"), description=desc, where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main))
 	elif config.plugins.bitrate.force_restart.value:
-		list.append(PluginDescriptor(name = _("Restart bitrate viewer"), description = desc, where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = restart))
+		list.append(PluginDescriptor(name=_("Restart bitrate viewer"), description=desc, where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=restart))
 	return list
