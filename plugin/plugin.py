@@ -29,6 +29,8 @@ bitrateviewer = None
 FULLHD = False
 if getDesktop(0).size().width() >= 1920:
 	FULLHD = True
+
+
 class BitrateViewerExtra(Screen):
 	skin_compact_fullhd = """
 		<screen position="200,40" size="300,90" zPosition="%s" flags="wfNoBorder" backgroundColor="%s" title="Bitrate viewer">
@@ -180,6 +182,7 @@ class BitrateViewerExtra(Screen):
 			self.refreshEvent()
 			if self.shown:
 				self.hide()
+
 
 class BitrateViewerSetup(Screen, ConfigListScreen):
 	if not FULLHD:
@@ -337,6 +340,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		ConfigListScreen.keyRight(self)
 		self.createSetup()
 
+
 class infobarModeBitrate:
 	def __init__(self, session):
 		self.session = session
@@ -416,6 +420,7 @@ class infobarModeBitrate:
 		self.__evEnd()
 		self.__evStart()
 
+
 def main(session, **kwargs):
 	global bitrateviewer
 	if bitrateviewer:
@@ -424,17 +429,21 @@ def main(session, **kwargs):
 		bitrateviewer = None
 	session.open(BitrateViewerExtra)
 
+
 def settings(session, **kwargs):
 	session.open(BitrateViewerSetup)
+
 
 def restart(session, **kwargs):
 	if session.nav.getCurrentlyPlayingServiceReference() and bitrateviewer and infobarModeBitrateInstance:
 		infobarModeBitrateInstance.resetService()
 
+
 def sessionstart(reason, session, **kwargs):
 	global infobarModeBitrateInstance
 	if reason == 0 and session and infobarModeBitrateInstance is None:
 		infobarModeBitrateInstance = infobarModeBitrate(session)
+
 
 def Plugins(**kwargs):
 	desc = _("Show bitrate for live service")
