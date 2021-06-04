@@ -210,7 +210,7 @@ class BitrateViewerSetup(Screen, ConfigListScreen):
 		Screen.__init__(self, session)
 		self["key_green"] = Label(_("Save/OK"))
 		self["key_red"] = Label(_("Cancel"))
-		self["actions"] = ActionMap(["SetupActions", "ColorActions"], 
+		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"ok": self.keyOk,
 			"save": self.keyGreen,
