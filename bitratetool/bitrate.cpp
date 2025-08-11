@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cstring>
 
 /* #define USE_TS_FILTER */
 
@@ -42,7 +43,7 @@ int syncTS(unsigned char *buf, int len)
 
 unsigned long timevalToMs(const struct timeval *tv)
 {
-	return(tv->tv_sec * 1000) + ((tv->tv_usec + 500) / 1000);
+	return (tv->tv_sec * 1000) + ((tv->tv_usec + 500) / 1000);
 }
 
 long deltaTimeMs(struct timeval *tv, struct timeval *last_tv)
@@ -120,12 +121,16 @@ ssize_t NBRead(int fd, void *buf, size_t count)
 	}
 }
 
-int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
+int measureBitrate(int adapter, int demux, bool oneshot, bool avonly, std::vector<int> pids)
 {
 	char filename[128];
 	snprintf(filename, 128, "/dev/dvb/adapter%d/demux%d", adapter, demux);
 	std::vector<int> fds;
 	std::vector<unsigned long long> b_total, b_tot1, min_kb_s, max_kb_s, avg_kb_s, curr_kb_s;
+
+	unsigned long long audio = 0, video = 0;
+	int counter = 0;
+
 	for (unsigned int i = 0; i < pids.size(); i++)
 	{
 		int fd = ::open(filename, O_RDONLY);
@@ -153,10 +158,8 @@ int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
 	}
 
 	struct timeval first_tv, last_print_tv;
-
 	gettimeofday(&first_tv, 0);
-	last_print_tv.tv_sec = first_tv.tv_sec;
-	last_print_tv.tv_usec = first_tv.tv_usec;
+	last_print_tv = first_tv;
 
 	while (1)
 	{
@@ -198,6 +201,7 @@ int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
 				b_tot1[i] += b;
 			}
 		}
+
 		struct timeval tv;
 		gettimeofday(&tv, 0);
 		int d_print_ms = deltaTimeMs(&tv, &last_print_tv);
@@ -206,30 +210,30 @@ int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
 			for (unsigned int i = 0; i < fds.size(); i++)
 			{
 				int d_tim_ms = deltaTimeMs(&tv, &first_tv);
-				avg_kb_s[i] = (b_total[i] * 8ULL) / (unsigned long long)d_tim_ms;
+				avg_kb_s[i]  = (b_total[i] * 8ULL) / (unsigned long long)d_tim_ms;
 				curr_kb_s[i] = (b_tot1[i] * 8ULL) / (unsigned long long)d_print_ms;
 #ifdef USE_TS_FILTER
 				/* compensate for TS and PES overhead */
-				avg_kb_s[i] = avg_kb_s[i] * 97ULL / 100ULL;
+				avg_kb_s[i]  = avg_kb_s[i] * 97ULL / 100ULL;
 				curr_kb_s[i] = curr_kb_s[i] * 97ULL / 100ULL;
 #else
 				/* compensate for PES overhead */
-				avg_kb_s[i] = avg_kb_s[i] * 99ULL / 100ULL;
+				avg_kb_s[i]  = avg_kb_s[i] * 99ULL / 100ULL;
 				curr_kb_s[i] = curr_kb_s[i] * 99ULL / 100ULL;
 #endif
 				b_tot1[i] = 0;
 
-				if (curr_kb_s[i] < min_kb_s[i])
+				if (curr_kb_s[i] < min_kb_s[i]) min_kb_s[i] = curr_kb_s[i];
+				if (curr_kb_s[i] > max_kb_s[i]) max_kb_s[i] = curr_kb_s[i];
+				last_print_tv = tv;
+
+				if (avonly)
 				{
-					min_kb_s[i] = curr_kb_s[i];
+					if (counter == 0) video = curr_kb_s[i];
+					else               audio = curr_kb_s[i];
+					counter++;
 				}
-				if (curr_kb_s[i] > max_kb_s[i])
-				{
-					max_kb_s[i] = curr_kb_s[i];
-				}
-				last_print_tv.tv_sec = tv.tv_sec;
-				last_print_tv.tv_usec = tv.tv_usec;
-				if (oneshot)
+				else if (oneshot)
 				{
 					std::cout << curr_kb_s[i] << std::endl;
 				}
@@ -238,22 +242,38 @@ int measureBitrate(int adapter, int demux, bool oneshot, std::vector<int> pids)
 					std::cout << min_kb_s[i] << " " << max_kb_s[i] << " " << avg_kb_s[i] << " " << curr_kb_s[i] << std::endl;
 				}
 			}
+
+			if (avonly && counter % 2 == 0)
+			{
+				std::cout << video << " " << audio << std::endl;
+				break;
+			}
 			if (oneshot) break;
 		}
 	}
+	return 0;
 }
 
 int main(int argc, char *argv[])
 {
 	if (argc < 4)
 	{
-		fprintf(stderr, "usage: %s <adapterid> <demuxid> <pid> [..<pidN>]\n", argv[0]);
-		exit(-1);
+		fprintf(stderr, "usage: %s <adapterid> <demuxid> <pid> [..<pidN>] [-once|-avonly]\n", argv[0]);
+		return -1;
 	}
+
+	bool oneshot = false;
+	bool avonly  = false;
 	std::vector<int> pids;
-	for (int i = 2; i < argc - 1; i++)
+
+	for (int i = 3; i < argc; i++)
 	{
-		pids.push_back(atoi(argv[i + 1]));
+		if (std::strcmp(argv[i], "-once") == 0)      oneshot = true;
+		else if (std::strcmp(argv[i], "-avonly") == 0) avonly = true;
+		else pids.push_back(atoi(argv[i]));
 	}
-	measureBitrate(atoi(argv[1]), atoi(argv[2]), false, pids);
+
+	measureBitrate(atoi(argv[1]), atoi(argv[2]), oneshot, avonly, pids);
+	return 0;
 }
+
